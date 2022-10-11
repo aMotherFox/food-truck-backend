@@ -58,5 +58,5 @@ build/
 
 
 # Custom additions done MANUALLY
-.idea
+.idea/
 .DS_Store
