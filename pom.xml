@@ -48,6 +48,11 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.hubspot.maven.plugins</groupId>
+				<artifactId>prettier-maven-plugin</artifactId>
+				<version>0.18</version>
+			</plugin>
 		</plugins>
 	</build>
 
