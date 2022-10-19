@@ -22,7 +22,7 @@ public class CustomerRepository {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
     }
 
-    public Customer createNewCustomer(NewCustomerRequestBody newCustomerRequestBody) {
+    public Customer createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
         String sql = "INSERT INTO customer (first_name, last_name, email, password) VALUES (?, ?, ?, ?) RETURNING *";
 
         return jdbcTemplate.queryForObject(

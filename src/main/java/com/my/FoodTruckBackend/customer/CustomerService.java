@@ -18,8 +18,8 @@ public class CustomerService {
         return customerRepository.getListOfCustomers();
     }
 
-    public CustomerDto createNewCustomer(NewCustomerRequestBody newCustomerRequestBody) {
-        Customer newCustomer = customerRepository.createNewCustomer(newCustomerRequestBody);
+    public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
+        Customer newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
         return new CustomerDto(
             newCustomer.getId(),
             newCustomerRequestBody.getFirstName()
