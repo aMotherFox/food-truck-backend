@@ -1,5 +1,8 @@
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/group_food_truck
-        username: lunaraeve
+        url: jdbc:postgresql://localhost:5432/food_truck_db
+        username: admin_user
         password:
+flyway:
+    user: admin_user
+    password:
