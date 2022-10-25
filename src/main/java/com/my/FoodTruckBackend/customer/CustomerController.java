@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class CustomerController {
     }
 
     @PostMapping("/customer")
-    public CustomerDto createNewCustomers(@RequestBody NewCustomerRequestBody newCustomerRequestBody) {
+    public CustomerDto createNewCustomers(@Valid @RequestBody NewCustomerRequestBody newCustomerRequestBody) {
         log.info("We are creating a new customer with the request body: " + newCustomerRequestBody);
         return customerService.createNewCustomers(newCustomerRequestBody);
     }
