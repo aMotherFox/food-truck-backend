@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class CustomerDto {
     private Integer id;
     private String firstName;
-    //all fields except password
+    private String lastName;
+    private String email;
 }

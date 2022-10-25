@@ -22,7 +22,9 @@ public class CustomerService {
         Customer newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
         return new CustomerDto(
             newCustomer.getId(),
-            newCustomerRequestBody.getFirstName()
+            newCustomerRequestBody.getFirstName(),
+            newCustomerRequestBody.getLastName(),
+            newCustomerRequestBody.getEmail()
         );
     }
 }
