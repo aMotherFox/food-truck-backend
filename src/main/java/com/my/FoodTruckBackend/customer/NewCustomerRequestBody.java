@@ -6,25 +6,23 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class NewCustomerRequestBody {
-    @NotBlank @NotNull @NotEmpty
+    @NotBlank
     private String firstName;
 
-    @NotBlank @NotNull @NotEmpty
+    @NotBlank(message = "Last name must not be blank")
     private String lastName;
 
-    @Email
+    @Email(message = "Invalid email, please enter vaild email address")
     private String email;
 
-    @NotBlank @NotNull @NotEmpty
+    @NotBlank(message = "Last name must not be blank")
     private String password;
 
-    @NotBlank @NotNull @NotEmpty
+    @NotBlank(message = "Passwords much match")
     private String confirmPassword;
 }

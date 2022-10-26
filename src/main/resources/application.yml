@@ -6,3 +6,6 @@ spring:
 flyway:
     user: admin_user
     password:
+server:
+    error:
+        include-message: always
