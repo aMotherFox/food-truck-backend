@@ -20,6 +20,12 @@ public class CustomerService {
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
         Customer newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
+
+        //get password from newCustomerRequestBody
+        //get confirmPassword from newCustomerRequestBody
+        // password MUST == confirmPassword
+        //if != then throw 400
+
         return new CustomerDto(
             newCustomer.getId(),
             newCustomerRequestBody.getFirstName(),
