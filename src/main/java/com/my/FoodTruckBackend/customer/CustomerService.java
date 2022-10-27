@@ -22,21 +22,16 @@ public class CustomerService {
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
 
-        System.out.println(newCustomerRequestBody.getPassword());
-        System.out.println(newCustomerRequestBody.getConfirmPassword());
-
-        if (newCustomerRequestBody.getPassword() == newCustomerRequestBody.getConfirmPassword()) {
+        if (newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
             log.info("Passwords match");
         } else {
             log.error("Passwords do not match");
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
         }
 
-        Customer newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
-
+        customerRepository.createNewCustomers(newCustomerRequestBody);
 
         return new CustomerDto(
-            newCustomer.getId(),
             newCustomerRequestBody.getFirstName(),
             newCustomerRequestBody.getLastName(),
             newCustomerRequestBody.getEmail()
