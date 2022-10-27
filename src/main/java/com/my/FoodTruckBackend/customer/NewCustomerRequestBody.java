@@ -1,11 +1,10 @@
 package com.my.FoodTruckBackend.customer;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +16,8 @@ public class NewCustomerRequestBody {
     @NotBlank(message = "Last name must not be blank")
     private String lastName;
 
-    @Email(message = "Invalid email, please enter valid email address") @NotBlank(message = "email must not be blank")
+    @Email(message = "Invalid email, please enter valid email address")
+    @NotBlank(message = "email must not be blank")
     private String email;
 
     @NotBlank(message = "Password must not be blank")

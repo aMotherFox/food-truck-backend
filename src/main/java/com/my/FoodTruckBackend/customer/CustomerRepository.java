@@ -1,5 +1,6 @@
 package com.my.FoodTruckBackend.customer;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
@@ -9,17 +10,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @Repository
 @RequiredArgsConstructor
 @Slf4j
 public class CustomerRepository {
-
     private final JdbcTemplate jdbcTemplate;
 
     public List<Customer> getListOfCustomers() {
-
         String sql = "SELECT * FROM customer";
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
