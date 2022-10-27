@@ -20,6 +20,7 @@ public class NewCustomerRequestBody {
     @Email(message = "Invalid email, please enter valid email address") @NotBlank(message = "email must not be blank")
     private String email;
 
+    @ValidPassword
     @NotBlank(message = "Last name must not be blank")
     private String password;
 

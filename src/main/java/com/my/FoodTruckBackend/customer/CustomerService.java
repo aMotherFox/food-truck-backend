@@ -2,7 +2,9 @@ package com.my.FoodTruckBackend.customer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -19,12 +21,19 @@ public class CustomerService {
     }
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
+
+        System.out.println(newCustomerRequestBody.getPassword());
+        System.out.println(newCustomerRequestBody.getConfirmPassword());
+
+        if (newCustomerRequestBody.getPassword() == newCustomerRequestBody.getConfirmPassword()) {
+            log.info("Passwords match");
+        } else {
+            log.error("Passwords do not match");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
+        }
+
         Customer newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
 
-        //get password from newCustomerRequestBody
-        //get confirmPassword from newCustomerRequestBody
-        // password MUST == confirmPassword
-        //if != then throw 400
 
         return new CustomerDto(
             newCustomer.getId(),
