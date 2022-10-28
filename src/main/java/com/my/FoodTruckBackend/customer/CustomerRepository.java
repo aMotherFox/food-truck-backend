@@ -16,10 +16,10 @@ import org.springframework.web.server.ResponseStatusException;
 public class CustomerRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    public List<Customer> getListOfCustomers() {
+    public List<CustomerDto> getListOfCustomers() {
         String sql = "SELECT * FROM customer";
 
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Customer.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CustomerDto.class));
     }
 
     public Customer createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {

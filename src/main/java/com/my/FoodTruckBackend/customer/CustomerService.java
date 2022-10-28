@@ -13,15 +13,13 @@ import org.springframework.web.server.ResponseStatusException;
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
-    public List<Customer> getListOfCustomers() {
+    public List<CustomerDto> getListOfCustomers() {
         return customerRepository.getListOfCustomers();
     }
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
         if (newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
-            log.info("Passwords match");
         } else {
-            log.error("Passwords do not match");
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
         }
 

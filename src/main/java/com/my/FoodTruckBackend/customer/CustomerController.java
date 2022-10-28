@@ -16,8 +16,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping("/customers")
-    public List<Customer> getListOfCustomers() {
-        System.out.println("we are inside the customer controller getListOfCustomers");
+    public List<CustomerDto> getListOfCustomers() {
         return customerService.getListOfCustomers();
     }
 

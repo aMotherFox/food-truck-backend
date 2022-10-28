@@ -10,17 +10,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class NewCustomerRequestBody {
-    @NotBlank(message = "First name must not be blank")
+    @NotBlank(message = "Please enter your first name")
     private String firstName;
 
-    @NotBlank(message = "Last name must not be blank")
+    @NotBlank(message = "Please enter your last name")
     private String lastName;
 
     @Email(message = "Invalid email, please enter valid email address")
-    @NotBlank(message = "email must not be blank")
+    @NotBlank(message = "Please enter a valid email address")
     private String email;
 
-    @NotBlank(message = "Password must not be blank")
+    @NotBlank(message = "Please choose a unique password")
     private String password;
 
     @NotBlank(message = "Passwords much match")
