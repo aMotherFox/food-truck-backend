@@ -22,9 +22,10 @@ public class CustomerService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
         }
 
-        customerRepository.createNewCustomers(newCustomerRequestBody);
+        CustomerDto newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
 
         return new CustomerDto(
+            newCustomer.getId(),
             newCustomerRequestBody.getFirstName(),
             newCustomerRequestBody.getLastName(),
             newCustomerRequestBody.getEmail()

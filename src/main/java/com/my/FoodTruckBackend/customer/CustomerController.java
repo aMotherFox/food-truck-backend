@@ -22,7 +22,6 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public CustomerDto createNewCustomers(@Valid @RequestBody NewCustomerRequestBody newCustomerRequestBody) {
-        log.info("We are creating a new customer with the request body: " + newCustomerRequestBody);
         return customerService.createNewCustomers(newCustomerRequestBody);
     }
 }

@@ -22,17 +22,23 @@ public class CustomerRepository {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(CustomerDto.class));
     }
 
-    public Customer createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
+    public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
         String sql = "INSERT INTO customer (first_name, last_name, email, password) VALUES (?, ?, ?, ?) RETURNING *";
 
         try {
-            return jdbcTemplate.queryForObject(
+            Customer newCustomer = jdbcTemplate.queryForObject(
                 sql,
                 new BeanPropertyRowMapper<>(Customer.class),
                 newCustomerRequestBody.getFirstName(),
                 newCustomerRequestBody.getLastName(),
                 newCustomerRequestBody.getEmail(),
                 newCustomerRequestBody.getPassword()
+            );
+            return new CustomerDto(
+                newCustomer.getId(),
+                newCustomerRequestBody.getFirstName(),
+                newCustomerRequestBody.getLastName(),
+                newCustomerRequestBody.getEmail()
             );
         } catch (DuplicateKeyException duplicateKeyException) {
             String errorMessage = "Email is already registered: " + newCustomerRequestBody.getEmail();
