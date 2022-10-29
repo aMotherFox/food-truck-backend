@@ -1,0 +1,12 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/food_truck_db
+        username: admin_user
+        password:
+flyway:
+    user: admin_user
+    password:
+server:
+    error:
+        include-message: always
+        include-binding-errors: always
