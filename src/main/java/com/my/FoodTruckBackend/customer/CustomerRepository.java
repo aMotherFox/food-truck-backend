@@ -29,10 +29,10 @@ public class CustomerRepository {
             return jdbcTemplate.queryForObject(
                 sql,
                 new BeanPropertyRowMapper<>(CustomerDto.class),
-                newCustomerRequestBody.getFirstName(),
-                newCustomerRequestBody.getLastName(),
-                newCustomerRequestBody.getEmail(),
-                newCustomerRequestBody.getPassword()
+                newCustomerRequestBody.getFirstName().trim(),
+                newCustomerRequestBody.getLastName().trim(),
+                newCustomerRequestBody.getEmail().trim(),
+                newCustomerRequestBody.getPassword().trim()
             );
         } catch (DuplicateKeyException duplicateKeyException) {
             String errorMessage = "Email is already registered: " + newCustomerRequestBody.getEmail();
