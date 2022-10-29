@@ -23,6 +23,5 @@ public class CustomerService {
         }
 
         return customerRepository.createNewCustomers(newCustomerRequestBody);
-
     }
 }
