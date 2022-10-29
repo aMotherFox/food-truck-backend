@@ -18,17 +18,11 @@ public class CustomerService {
     }
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
-        if (newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {} else {
+        if (!newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
         }
 
-        CustomerDto newCustomer = customerRepository.createNewCustomers(newCustomerRequestBody);
+        return customerRepository.createNewCustomers(newCustomerRequestBody);
 
-        return new CustomerDto(
-            newCustomer.getId(),
-            newCustomerRequestBody.getFirstName(),
-            newCustomerRequestBody.getLastName(),
-            newCustomerRequestBody.getEmail()
-        );
     }
 }

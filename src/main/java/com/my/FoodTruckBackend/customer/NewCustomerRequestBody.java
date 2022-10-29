@@ -23,6 +23,6 @@ public class NewCustomerRequestBody {
     @NotBlank(message = "Please choose a unique password")
     private String password;
 
-    @NotBlank(message = "Passwords much match")
+    @NotBlank(message = "Please re-enter your unique password")
     private String confirmPassword;
 }
