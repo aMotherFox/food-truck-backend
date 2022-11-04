@@ -1,4 +1,4 @@
-package com.my.FoodTruckBackend.customer;
+package com.my.FoodTruckBackend.customer.signup;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
