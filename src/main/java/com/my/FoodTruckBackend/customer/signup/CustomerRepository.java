@@ -1,5 +1,7 @@
-package com.my.FoodTruckBackend.customer;
+package com.my.FoodTruckBackend.customer.signup;
 
+import com.my.FoodTruckBackend.customer.CustomerDto;
+import com.my.FoodTruckBackend.customer.signup.NewCustomerRequestBody;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

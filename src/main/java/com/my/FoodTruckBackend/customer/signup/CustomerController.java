@@ -1,5 +1,6 @@
-package com.my.FoodTruckBackend.customer;
+package com.my.FoodTruckBackend.customer.signup;
 
+import com.my.FoodTruckBackend.customer.CustomerDto;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
