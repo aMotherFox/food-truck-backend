@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Login {
+public class LoginRequestBody {
     private String email;
     private String password;
 
 }
+
+/*
+* you will need to create a safe user model
+* */
 
 //login endpoint
 /*
@@ -23,4 +27,8 @@ public class Login {
 * return a safe user with id, email, and password
 * give a 200 success code
 *
+*
+* create a thing that gets the customer by the email and password, right now you are
+* getting them only by customers. this should be in the customer repository. You might
+* need to make the customer repository sharable between the two so move it up a directory.
 * */
