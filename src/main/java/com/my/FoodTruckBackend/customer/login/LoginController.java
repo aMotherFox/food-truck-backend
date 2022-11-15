@@ -16,8 +16,8 @@ public class LoginController {
     private final LoginService loginService;
 
     // ------------match a customer to the email and password
-    @GetMapping("/login")
-    public SafeUser getMatchedUser(@RequestBody LoginRequestBody loginRequestBody) {
-        return loginService.getMatchingUser(loginRequestBody);
+    @PostMapping("/login")
+    public SafeUser loggingInUser(@RequestBody LoginRequestBody loginRequestBody) {
+        return loginService.loggingInUser(loginRequestBody);
     }
 }

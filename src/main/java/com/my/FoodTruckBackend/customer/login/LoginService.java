@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     private final LoginRepository loginRepository;
 
-    public SafeUser getMatchingUser(LoginRequestBody loginRequestBody) {
-        return loginRepository.getMatchingUser(loginRequestBody);
+    public SafeUser loggingInUser(LoginRequestBody loginRequestBody) {
+        return loginRepository.loggingInUser(loginRequestBody);
     }
 }
