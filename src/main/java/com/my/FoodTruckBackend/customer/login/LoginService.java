@@ -1,6 +1,7 @@
 package com.my.FoodTruckBackend.customer.login;
 
 import com.my.FoodTruckBackend.customer.CustomerDto;
+import com.my.FoodTruckBackend.customer.SafeUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     private final LoginRepository loginRepository;
 
-    public CustomerDto getMatchingUser() {
-        return loginRepository.getMatchingUser(LoginRequestBody);
+    public SafeUser getMatchingUser(LoginRequestBody loginRequestBody) {
+        return loginRepository.getMatchingUser(loginRequestBody);
     }
 }
