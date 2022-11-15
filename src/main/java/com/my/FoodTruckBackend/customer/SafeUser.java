@@ -1,4 +1,3 @@
 package com.my.FoodTruckBackend.customer;
 
-public class SafeUser {
-}
+public class SafeUser {}
