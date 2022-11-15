@@ -20,14 +20,14 @@ public class LoginRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public SafeUser getMatchingUser(LoginRequestBody loginRequestBody) {
-        String sql = "SELECT * FROM customer WHERE email = ? AND password = ? returning *";
+        String sql = "SELECT FROM customer WHERE email = ? AND password = ?";
 
         System.out.println("email" + loginRequestBody.getEmail());
         System.out.println("password" + loginRequestBody.getPassword());
         try {
             SafeUser matchedCustomer = jdbcTemplate.queryForObject(
                 sql,
-//                new BeanPropertyRowMapper<>(SafeUser.class),
+                new BeanPropertyRowMapper<>(SafeUser.class),
                 loginRequestBody.getEmail(),
                 loginRequestBody.getPassword()
             );
