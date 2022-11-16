@@ -21,8 +21,6 @@ public class LoginRepository {
     public SafeUser loggingInUser(LoginRequestBody loginRequestBody) {
         String sql = "SELECT * FROM customer WHERE email = ? AND password = ?";
 
-        System.out.println("email" + loginRequestBody.getEmail());
-        System.out.println("password" + loginRequestBody.getPassword());
         try {
             SafeUser matchedCustomer = jdbcTemplate.queryForObject(
                 sql,
