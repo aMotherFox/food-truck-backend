@@ -11,4 +11,3 @@ public class LoginRequestBody {
     private String email;
     private String password;
 }
-

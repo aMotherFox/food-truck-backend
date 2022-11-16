@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     private final LoginService loginService;
 
-
     @PostMapping("/login")
     public SafeUser loggingInUser(@RequestBody LoginRequestBody loginRequestBody) {
         return loginService.loggingInUser(loginRequestBody);
