@@ -16,7 +16,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RequiredArgsConstructor
 @Slf4j
 public class LoginRepository {
-
     private final JdbcTemplate jdbcTemplate;
 
     public SafeUser loggingInUser(LoginRequestBody loginRequestBody) {
@@ -34,10 +33,7 @@ public class LoginRepository {
             return matchedCustomer;
         } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
             log.error("No customer found with this email or password.");
-            throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND,
-                "No customer found with this email or password"
-            );
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No customer found with this email or password");
         }
     }
 }
