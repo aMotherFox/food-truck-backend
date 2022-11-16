@@ -20,7 +20,7 @@ public class LoginRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public SafeUser loggingInUser(LoginRequestBody loginRequestBody) {
-        String sql = "SELECT FROM customer WHERE email = ? AND password = ?";
+        String sql = "SELECT * FROM customer WHERE email = ? AND password = ?";
 
         System.out.println("email" + loginRequestBody.getEmail());
         System.out.println("password" + loginRequestBody.getPassword());
