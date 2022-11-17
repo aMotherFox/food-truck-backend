@@ -21,7 +21,14 @@ public class CustomerService {
     }
 
     public CustomerDto createNewCustomers(NewCustomerRequestBody newCustomerRequestBody) {
-        if (!newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
+//        if (!newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
+//        }
+
+        if (newCustomerRequestBody.getPassword().equals(newCustomerRequestBody.getConfirmPassword())) {
+            log.info("Passwords match");
+        } else {
+            log.error("Passwords do not match");
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "passwords do not match");
         }
 
