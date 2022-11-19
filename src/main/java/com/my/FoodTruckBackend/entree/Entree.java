@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 
-public class entree {
+public class Entree {
     private Integer id;
     private String name;
     private String description;
