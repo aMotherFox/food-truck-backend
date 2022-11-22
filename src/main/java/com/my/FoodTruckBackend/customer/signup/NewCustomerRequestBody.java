@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class NewCustomerRequestBody {
-
     @NotBlank(message = "Please enter your first name, between 2-50 characters")
     private String firstName;
 
