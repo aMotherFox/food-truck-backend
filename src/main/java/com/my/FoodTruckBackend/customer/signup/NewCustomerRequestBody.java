@@ -11,11 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class NewCustomerRequestBody {
-    @Size(min = 2, max = 50)
     @NotBlank(message = "Please enter your first name, between 2-50 characters")
     private String firstName;
 
-    @Size(min = 2, max = 50)
     @NotBlank(message = "Please enter your last name, between 2-50 characters")
     private String lastName;
 
@@ -23,11 +21,9 @@ public class NewCustomerRequestBody {
     @NotBlank(message = "Please enter a valid email address")
     private String email;
 
-    @Size(min = 8, max = 50)
     @NotBlank(message = "Please choose a unique password, between 8-50 characters")
     private String password;
 
-    @Size(min = 8, max = 50)
     @NotBlank(message = "Please re-enter your unique password, between 8-50 characters")
     private String confirmPassword;
 }
