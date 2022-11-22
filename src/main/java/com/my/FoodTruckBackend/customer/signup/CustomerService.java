@@ -42,7 +42,7 @@ public class CustomerService {
         if (newCustomerRequestBody.getPassword().length() < 2 || newCustomerRequestBody.getPassword().length() > 50) {
             throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST,
-                "Please enter a unique password, between 2-50 characters"
+                "Please enter a unique password, between 8-50 characters"
             );
         }
         if (
