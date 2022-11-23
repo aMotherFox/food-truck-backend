@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 public class EntreeController {
-
     private final EntreeService entreeService;
 
-    @PostMapping("/new-entree")
-    public EntreeDto createNewEntree(@RequestBody NewEntreeRequestBody newEntreeRequestBody) {
-        return entreeService.createNewEntree(newEntreeRequestBody);
+    @PostMapping("/entree")
+    public Entree createNewEntree(@RequestBody entreeRequestBody entreeRequestBody) {
+        return entreeService.createNewEntree(entreeRequestBody);
     }
 }
