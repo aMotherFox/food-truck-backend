@@ -9,22 +9,24 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
 
+
 @Repository
 @RequiredArgsConstructor
 @Slf4j
 public class EntreeRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    public Entree createNewEntree(entreeRequestBody entreeRequestBody) {
-        String sql = "INSERT INTO entree (\"name\", description, price) VALUES (?, ?, ?) RETURNING *";
+    public Entree createNewEntree(EntreeRequestBody entreeRequestBody) {
+        String sql = "INSERT INTO entree(name,description,price) VALUES(?,?,?) RETURNING *";
 try {
-    return jdbcTemplate.queryForObject(
+    Entree newEntree = jdbcTemplate.queryForObject(
         sql,
         new BeanPropertyRowMapper<>(Entree.class),
         entreeRequestBody.getName(),
         entreeRequestBody.getDescription(),
         entreeRequestBody.getPrice()
     );
+    return newEntree;
 } catch (ResponseStatusException responseStatusException) {
     String errorMessage = "Entree:" + entreeRequestBody.getName() + "could not be added";
     log.error(errorMessage);

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class EntreeService {
     private final EntreeRepository entreeRepository;
 
-    public Entree createNewEntree(entreeRequestBody entreeRequestBody) {
+    public Entree createNewEntree(EntreeRequestBody entreeRequestBody) {
         return entreeRepository.createNewEntree(entreeRequestBody);
     }
 }

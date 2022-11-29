@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class entreeRequestBody {
+public class EntreeRequestBody {
     private String name;
     private String description;
     private Integer price;

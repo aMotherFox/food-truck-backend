@@ -13,7 +13,8 @@ public class EntreeController {
     private final EntreeService entreeService;
 
     @PostMapping("/entree")
-    public Entree createNewEntree(@RequestBody entreeRequestBody entreeRequestBody) {
+    public Entree createNewEntree(@RequestBody EntreeRequestBody entreeRequestBody) {
+        log.info("creating new entree");
         return entreeService.createNewEntree(entreeRequestBody);
     }
 }
