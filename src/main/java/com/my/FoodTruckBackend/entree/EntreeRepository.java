@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 
 
 @Repository
@@ -33,6 +34,12 @@ try {
     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessage);
 
 }
+
+    }
+    public List<Entree> gettingAllEntree() {
+        String sql = "SELECT * FROM entree";
+
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class));
 
     }
 
