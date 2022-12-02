@@ -22,7 +22,7 @@ public class AppetizerRepository {
             return jdbcTemplate.queryForObject(
                 sql,
                 new BeanPropertyRowMapper<>(Appetizer.class),
-                newAppetizerRequestBody.getName(),
+                newAppetizerRequestBody.getName().trim(),
                 newAppetizerRequestBody.getPrice()
             );
         } catch (DuplicateKeyException duplicateKeyException) {

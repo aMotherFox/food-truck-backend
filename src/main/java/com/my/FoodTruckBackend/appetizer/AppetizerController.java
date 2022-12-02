@@ -15,5 +15,3 @@ public class AppetizerController {
         return appetizerService.createNewAppetizers(newAppetizerRequestBody);
     }
 }
-
-// TODO: add validation to inputs
