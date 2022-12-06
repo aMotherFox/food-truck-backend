@@ -23,7 +23,7 @@ try {
     Entree newEntree = jdbcTemplate.queryForObject(
         sql,
         new BeanPropertyRowMapper<>(Entree.class),
-        entreeRequestBody.getName(),
+        entreeRequestBody.getName().trim(),
         entreeRequestBody.getDescription(),
         entreeRequestBody.getPrice()
     );
