@@ -26,7 +26,6 @@ public class EntreeRepository {
                 entreeRequestBody.getDescription().trim(),
                 entreeRequestBody.getPrice()
             );
-            //jdbc will not return a ResponseStatusException, line 32 will never run.
         } catch (DuplicateKeyException duplicateKeyException) {
             String errorMessage = "Entree:" + entreeRequestBody.getName() + "could not be added";
             log.error(errorMessage);
