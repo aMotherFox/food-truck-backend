@@ -19,14 +19,13 @@ public class EntreeRepository {
     public Entree createNewEntree(EntreeRequestBody entreeRequestBody) {
         String sql = "INSERT INTO entree(name,description,price) VALUES(?,?,?) RETURNING *";
         try {
-           return jdbcTemplate.queryForObject(
+            return jdbcTemplate.queryForObject(
                 sql,
                 new BeanPropertyRowMapper<>(Entree.class),
                 entreeRequestBody.getName().trim(),
                 entreeRequestBody.getDescription().trim(),
                 entreeRequestBody.getPrice()
             );
-
             //jdbc will not return a ResponseStatusException, line 32 will never run.
         } catch (DuplicateKeyException duplicateKeyException) {
             String errorMessage = "Entree:" + entreeRequestBody.getName() + "could not be added";
