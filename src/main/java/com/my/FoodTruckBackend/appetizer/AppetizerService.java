@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+
 @Service
 @RequiredArgsConstructor
 public class AppetizerService {
@@ -19,5 +21,9 @@ public class AppetizerService {
         }
 
         return appetizerRepository.createNewAppetizers(newAppetizerRequestBody);
+    }
+
+    public ArrayList<Appetizer> getListOfAppetizers() {
+        return appetizerRepository.getListOfAppetizers();
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+
 @Repository
 @RequiredArgsConstructor
 @Slf4j
@@ -30,5 +32,10 @@ public class AppetizerRepository {
             log.error(errorMessage);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessage);
         }
+    }
+
+    public ArrayList<Appetizer> getListOfAppetizers() {
+        String sql = "SELECT * FROM appetizer";
+        return (ArrayList<Appetizer>) jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class));
     }
 }
