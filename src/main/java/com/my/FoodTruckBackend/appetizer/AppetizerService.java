@@ -1,11 +1,10 @@
 package com.my.FoodTruckBackend.appetizer;
 
+import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
