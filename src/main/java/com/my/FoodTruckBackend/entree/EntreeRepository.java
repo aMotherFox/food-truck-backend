@@ -27,7 +27,7 @@ public class EntreeRepository {
                 entreeRequestBody.getPrice()
             );
         } catch (DuplicateKeyException duplicateKeyException) {
-            String errorMessage = "Entree:" + entreeRequestBody.getName() + "could not be added";
+            String errorMessage = "Entree:" + entreeRequestBody.getName() + "already exists";
             log.error(errorMessage);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessage);
         }
