@@ -16,13 +16,13 @@ public class AppetizerController {
 
     @PostMapping("/appetizers")
     public Appetizer createNewAppetizers(@RequestBody NewAppetizerRequestBody newAppetizerRequestBody) {
-        log.info("appetizer created");
+        log.info("An appetizer is being created with RequestBody: " + newAppetizerRequestBody);
         return appetizerService.createNewAppetizers(newAppetizerRequestBody);
     }
 
     @GetMapping("/appetizers")
     public ArrayList<Appetizer> getListOfAppetizers() {
-        log.info("we are getting a list of appetizers");
+        log.info("Getting a list of all appetizers");
         return appetizerService.getListOfAppetizers();
     }
 }
