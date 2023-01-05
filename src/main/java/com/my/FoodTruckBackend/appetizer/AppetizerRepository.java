@@ -1,5 +1,6 @@
 package com.my.FoodTruckBackend.appetizer;
 
+import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
@@ -30,5 +31,10 @@ public class AppetizerRepository {
             log.error(errorMessage);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessage);
         }
+    }
+
+    public ArrayList<Appetizer> getListOfAppetizers() {
+        String sql = "SELECT * FROM appetizer";
+        return (ArrayList<Appetizer>) jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class));
     }
 }

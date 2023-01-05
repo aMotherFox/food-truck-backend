@@ -1,5 +1,6 @@
 package com.my.FoodTruckBackend.appetizer;
 
+import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,9 @@ public class AppetizerService {
         }
 
         return appetizerRepository.createNewAppetizers(newAppetizerRequestBody);
+    }
+
+    public ArrayList<Appetizer> getListOfAppetizers() {
+        return appetizerRepository.getListOfAppetizers();
     }
 }
