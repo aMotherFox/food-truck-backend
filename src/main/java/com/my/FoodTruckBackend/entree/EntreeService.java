@@ -27,4 +27,8 @@ public class EntreeService {
         log.info("SELECTING ALL entrees");
         return entreeRepository.gettingAllEntree();
     }
+
+    public Entree gettingEntreeById(Integer id) {
+        return entreeRepository.getEntreeById(id);
+    }
 }

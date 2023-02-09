@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,4 +39,23 @@ public class EntreeRepository {
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Entree.class));
     }
+
+    public Entree getEntreeById(Integer id) {
+        String sql = "SELECT * FROM entree WHERE id = ?";
+        try {
+            Entree entreeById = jdbcTemplate.queryForObject(
+                sql,
+                new BeanPropertyRowMapper<>(Entree.class),
+                id
+            );
+            return entreeById;
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            log.error("No entree found with this id: " + id);
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND,
+                "No entree found with this id: " + id
+            );
+        }
+    }
+
 }

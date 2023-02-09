@@ -18,7 +18,7 @@ public class OrderRepository {
         Order newOrder = jdbcTemplate.queryForObject(
             newOrderSql,
             new BeanPropertyRowMapper<>(Order.class),
-            newOrderRequestBody.getCustomerId()
+            newOrderRequestBody //this is missing stuff this thing is not complete, i went to go figure out getting entrees and apps by id
         );
         return newOrder;
     }
