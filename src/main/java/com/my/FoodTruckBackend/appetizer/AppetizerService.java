@@ -25,4 +25,6 @@ public class AppetizerService {
     public ArrayList<Appetizer> getListOfAppetizers() {
         return appetizerRepository.getListOfAppetizers();
     }
+
+    public Appetizer getAppetizerById(Integer id) { return appetizerRepository.getAppetizerById(id);}
 }

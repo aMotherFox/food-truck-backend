@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -36,5 +37,24 @@ public class AppetizerRepository {
     public ArrayList<Appetizer> getListOfAppetizers() {
         String sql = "SELECT * FROM appetizer";
         return (ArrayList<Appetizer>) jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Appetizer.class));
+    }
+
+    public Appetizer getAppetizerById(Integer id) {
+        String sql = "SELECT * FROM appetizer WHERE id = ?";
+        try {
+            Appetizer appetizerById = jdbcTemplate.queryForObject(
+                sql,
+                new BeanPropertyRowMapper<>(Appetizer.class),
+                id
+            );
+            return appetizerById;
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            log.error("no appetizer found with this id: "+ id);
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND,
+                "No appetizer found with this id: " + id
+            );
+
+        }
     }
 }
