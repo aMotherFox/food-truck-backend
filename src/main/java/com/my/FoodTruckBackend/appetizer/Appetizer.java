@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class Appetizer {
     private Integer id;
     private String name;
+    private String description;
     private Integer price;
 }
