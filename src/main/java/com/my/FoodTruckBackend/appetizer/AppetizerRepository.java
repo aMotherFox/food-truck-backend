@@ -17,7 +17,7 @@ public class AppetizerRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public Appetizer createNewAppetizers(NewAppetizerRequestBody newAppetizerRequestBody) {
-        String sql = "INSERT INTO appetizer (name, price, description) VALUES (?, ?, ?) RETURNING *";
+        String sql = "INSERT INTO appetizer (name,description,price) VALUES (?, ?, ?) RETURNING *";
 
         try {
             return jdbcTemplate.queryForObject(
