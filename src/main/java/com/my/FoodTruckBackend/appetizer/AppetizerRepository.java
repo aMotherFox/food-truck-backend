@@ -17,13 +17,14 @@ public class AppetizerRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public Appetizer createNewAppetizers(NewAppetizerRequestBody newAppetizerRequestBody) {
-        String sql = "INSERT INTO appetizer (name, price) VALUES (?, ?) RETURNING *";
+        String sql = "INSERT INTO appetizer(name,description,price) VALUES(?, ?, ?) RETURNING *";
 
         try {
             return jdbcTemplate.queryForObject(
                 sql,
                 new BeanPropertyRowMapper<>(Appetizer.class),
                 newAppetizerRequestBody.getName().trim(),
+                newAppetizerRequestBody.getDescription().trim(),
                 newAppetizerRequestBody.getPrice()
             );
         } catch (DuplicateKeyException duplicateKeyException) {
